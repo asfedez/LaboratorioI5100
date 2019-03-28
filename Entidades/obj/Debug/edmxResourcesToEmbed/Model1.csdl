@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_BibliotecaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="clientes">
+    <Key>
+      <PropertyRef Name="Cedula" />
+    </Key>
+    <Property Name="Cedula" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="existencias">
+    <Key>
+      <PropertyRef Name="CodLibro" />
+    </Key>
+    <Property Name="CodLibro" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Libros">
+    <Key>
+      <PropertyRef Name="CodLibro" />
+    </Key>
+    <Property Name="CodLibro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISBN" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Titulo" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="Autor" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="FechaPublicacion" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="prestamoDet">
+    <Key>
+      <PropertyRef Name="CodPrestamo" />
+      <PropertyRef Name="CodLibro" />
+    </Key>
+    <Property Name="CodPrestamo" Type="Int32" Nullable="false" />
+    <Property Name="CodLibro" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Int32" />
+  </EntityType>
+  <EntityType Name="prestamoEnc">
+    <Key>
+      <PropertyRef Name="CodPrestamo" />
+    </Key>
+    <Property Name="CodPrestamo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cedula" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="fechaPrestamo" Type="DateTime" Precision="0" />
+    <Property Name="fechaDevoluvion" Type="DateTime" Precision="0" />
+  </EntityType>
+  <Association Name="FK__prestamoE__cedul__01142BA1">
+    <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
+    <End Role="prestamoEnc" Type="Self.prestamoEnc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clientes">
+        <PropertyRef Name="Cedula" />
+      </Principal>
+      <Dependent Role="prestamoEnc">
+        <PropertyRef Name="cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__existenci__CodLi__286302EC">
+    <End Role="Libros" Type="Self.Libros" Multiplicity="1" />
+    <End Role="existencias" Type="Self.existencias" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Libros">
+        <PropertyRef Name="CodLibro" />
+      </Principal>
+      <Dependent Role="existencias">
+        <PropertyRef Name="CodLibro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__prestamoD__CodLi__03F0984C">
+    <End Role="Libros" Type="Self.Libros" Multiplicity="1" />
+    <End Role="prestamoDet" Type="Self.prestamoDet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Libros">
+        <PropertyRef Name="CodLibro" />
+      </Principal>
+      <Dependent Role="prestamoDet">
+        <PropertyRef Name="CodLibro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__prestamoD__CodPr__02FC7413">
+    <End Role="prestamoEnc" Type="Self.prestamoEnc" Multiplicity="1" />
+    <End Role="prestamoDet" Type="Self.prestamoDet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="prestamoEnc">
+        <PropertyRef Name="CodPrestamo" />
+      </Principal>
+      <Dependent Role="prestamoDet">
+        <PropertyRef Name="CodPrestamo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_BibliotecaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="clientes" EntityType="Self.clientes" />
+    <EntitySet Name="existencias" EntityType="Self.existencias" />
+    <EntitySet Name="Libros" EntityType="Self.Libros" />
+    <EntitySet Name="prestamoDet" EntityType="Self.prestamoDet" />
+    <EntitySet Name="prestamoEnc" EntityType="Self.prestamoEnc" />
+    <AssociationSet Name="FK__prestamoE__cedul__01142BA1" Association="Self.FK__prestamoE__cedul__01142BA1">
+      <End Role="clientes" EntitySet="clientes" />
+      <End Role="prestamoEnc" EntitySet="prestamoEnc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__existenci__CodLi__286302EC" Association="Self.FK__existenci__CodLi__286302EC">
+      <End Role="Libros" EntitySet="Libros" />
+      <End Role="existencias" EntitySet="existencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK__prestamoD__CodLi__03F0984C" Association="Self.FK__prestamoD__CodLi__03F0984C">
+      <End Role="Libros" EntitySet="Libros" />
+      <End Role="prestamoDet" EntitySet="prestamoDet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__prestamoD__CodPr__02FC7413" Association="Self.FK__prestamoD__CodPr__02FC7413">
+      <End Role="prestamoEnc" EntitySet="prestamoEnc" />
+      <End Role="prestamoDet" EntitySet="prestamoDet" />
+    </AssociationSet>
+    <EntitySet Name="usuarios" EntityType="DB_BibliotecaModel.usuarios" />
+    <EntitySet Name="roles" EntityType="DB_BibliotecaModel.roles" />
+    <EntitySet Name="ventanas" EntityType="DB_BibliotecaModel.ventanas" />
+    <EntitySet Name="permisosDeRol" EntityType="DB_BibliotecaModel.permisosDeRol" />
+    <AssociationSet Name="FK__permisosD__idrol__0D7A0286" Association="DB_BibliotecaModel.FK__permisosD__idrol__0D7A0286">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="permisosDeRol" EntitySet="permisosDeRol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__permisosD__idven__0E6E26BF" Association="DB_BibliotecaModel.FK__permisosD__idven__0E6E26BF">
+      <End Role="ventanas" EntitySet="ventanas" />
+      <End Role="permisosDeRol" EntitySet="permisosDeRol" />
+    </AssociationSet>
+    <EntitySet Name="permisosAUsuarios" EntityType="DB_BibliotecaModel.permisosAUsuarios" />
+    <EntitySet Name="rolAsignadoAUsuario" EntityType="DB_BibliotecaModel.rolAsignadoAUsuario" />
+    <AssociationSet Name="FK__permisosA__idusu__1DE57479" Association="DB_BibliotecaModel.FK__permisosA__idusu__1DE57479">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="permisosAUsuarios" EntitySet="permisosAUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__permisosA__idven__1ED998B2" Association="DB_BibliotecaModel.FK__permisosA__idven__1ED998B2">
+      <End Role="ventanas" EntitySet="ventanas" />
+      <End Role="permisosAUsuarios" EntitySet="permisosAUsuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__rolAsigna__idRol__1A14E395" Association="DB_BibliotecaModel.FK__rolAsigna__idRol__1A14E395">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="rolAsignadoAUsuario" EntitySet="rolAsignadoAUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__rolAsigna__idUsu__1B0907CE" Association="DB_BibliotecaModel.FK__rolAsigna__idUsu__1B0907CE">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="rolAsignadoAUsuario" EntitySet="rolAsignadoAUsuario" />
+    </AssociationSet>
+    <EntitySet Name="Bitacora" EntityType="DB_BibliotecaModel.Bitacora" />
+  </EntityContainer>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreUsuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="contrasenna" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="idrol" />
+    </Key>
+    <Property Name="idrol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ventanas">
+    <Key>
+      <PropertyRef Name="idventana" />
+    </Key>
+    <Property Name="idventana" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="permisosDeRol">
+    <Key>
+      <PropertyRef Name="idrol" />
+      <PropertyRef Name="idventana" />
+    </Key>
+    <Property Name="idrol" Type="Int32" Nullable="false" />
+    <Property Name="idventana" Type="Int32" Nullable="false" />
+    <Property Name="insertar" Type="Int32" />
+    <Property Name="modificar" Type="Int32" />
+    <Property Name="eliminar" Type="Int32" />
+    <Property Name="consultar" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__permisosD__idrol__0D7A0286">
+    <End Type="DB_BibliotecaModel.roles" Role="roles" Multiplicity="1" />
+    <End Type="DB_BibliotecaModel.permisosDeRol" Role="permisosDeRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="idrol" />
+      </Principal>
+      <Dependent Role="permisosDeRol">
+        <PropertyRef Name="idrol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__permisosD__idven__0E6E26BF">
+    <End Type="DB_BibliotecaModel.ventanas" Role="ventanas" Multiplicity="1" />
+    <End Type="DB_BibliotecaModel.permisosDeRol" Role="permisosDeRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ventanas">
+        <PropertyRef Name="idventana" />
+      </Principal>
+      <Dependent Role="permisosDeRol">
+        <PropertyRef Name="idventana" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="permisosAUsuarios">
+    <Key>
+      <PropertyRef Name="idpermisosAUsuarios" />
+    </Key>
+    <Property Name="idpermisosAUsuarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idusuario" Type="Int32" />
+    <Property Name="idventana" Type="Int32" />
+    <Property Name="insertar" Type="Int32" />
+    <Property Name="modificar" Type="Int32" />
+    <Property Name="eliminar" Type="Int32" />
+    <Property Name="consultar" Type="Int32" />
+  </EntityType>
+  <EntityType Name="rolAsignadoAUsuario">
+    <Key>
+      <PropertyRef Name="idrolAsignadoAUsuario" />
+    </Key>
+    <Property Name="idrolAsignadoAUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUsuario" Type="Int32" />
+    <Property Name="idRol" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__permisosA__idusu__1DE57479">
+    <End Type="DB_BibliotecaModel.usuarios" Role="usuarios" Multiplicity="0..1" />
+    <End Type="DB_BibliotecaModel.permisosAUsuarios" Role="permisosAUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="permisosAUsuarios">
+        <PropertyRef Name="idusuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__permisosA__idven__1ED998B2">
+    <End Type="DB_BibliotecaModel.ventanas" Role="ventanas" Multiplicity="0..1" />
+    <End Type="DB_BibliotecaModel.permisosAUsuarios" Role="permisosAUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ventanas">
+        <PropertyRef Name="idventana" />
+      </Principal>
+      <Dependent Role="permisosAUsuarios">
+        <PropertyRef Name="idventana" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__rolAsigna__idRol__1A14E395">
+    <End Type="DB_BibliotecaModel.roles" Role="roles" Multiplicity="0..1" />
+    <End Type="DB_BibliotecaModel.rolAsignadoAUsuario" Role="rolAsignadoAUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="idrol" />
+      </Principal>
+      <Dependent Role="rolAsignadoAUsuario">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__rolAsigna__idUsu__1B0907CE">
+    <End Type="DB_BibliotecaModel.usuarios" Role="usuarios" Multiplicity="0..1" />
+    <End Type="DB_BibliotecaModel.rolAsignadoAUsuario" Role="rolAsignadoAUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="rolAsignadoAUsuario">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="idBitacora" />
+    </Key>
+    <Property Name="idBitacora" Type="Int32" Nullable="false" />
+    <Property Name="nombreUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="fechaIngreso" Type="DateTime" Precision="3" Nullable="false" />
+  </EntityType>
+</Schema>

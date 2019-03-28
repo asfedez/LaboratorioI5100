@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_BibliotecaModelStoreContainer" CdmEntityContainer="DB_BibliotecaEntities">
+    <EntitySetMapping Name="clientes">
+      <EntityTypeMapping TypeName="DB_BibliotecaModel.clientes">
+        <MappingFragment StoreEntitySet="clientes">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="existencias">
+      <EntityTypeMapping TypeName="DB_BibliotecaModel.existencias">
+        <MappingFragment StoreEntitySet="existencias">
+          <ScalarProperty Name="CodLibro" ColumnName="CodLibro" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Libros">
+      <EntityTypeMapping TypeName="DB_BibliotecaModel.Libros">
+        <MappingFragment StoreEntitySet="Libros">
+          <ScalarProperty Name="CodLibro" ColumnName="CodLibro" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="FechaPublicacion" ColumnName="FechaPublicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prestamoDet">
+      <EntityTypeMapping TypeName="DB_BibliotecaModel.prestamoDet">
+        <MappingFragment StoreEntitySet="prestamoDet">
+          <ScalarProperty Name="CodPrestamo" ColumnName="CodPrestamo" />
+          <ScalarProperty Name="CodLibro" ColumnName="CodLibro" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prestamoEnc">
+      <EntityTypeMapping TypeName="DB_BibliotecaModel.prestamoEnc">
+        <MappingFragment StoreEntitySet="prestamoEnc">
+          <ScalarProperty Name="CodPrestamo" ColumnName="CodPrestamo" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="fechaPrestamo" ColumnName="fechaPrestamo" />
+          <ScalarProperty Name="fechaDevoluvion" ColumnName="fechaDevoluvion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="DB_BibliotecaModel.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="contrasenna" ColumnName="contrasenna" />
+          <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="DB_BibliotecaModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idrol" ColumnName="idrol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ventanas">
+      <EntityTypeMapping TypeName="DB_BibliotecaModel.ventanas">
+        <MappingFragment StoreEntitySet="ventanas">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idventana" ColumnName="idventana" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permisosDeRol">
+      <EntityTypeMapping TypeName="DB_BibliotecaModel.permisosDeRol">
+        <MappingFragment StoreEntitySet="permisosDeRol">
+          <ScalarProperty Name="consultar" ColumnName="consultar" />
+          <ScalarProperty Name="eliminar" ColumnName="eliminar" />
+          <ScalarProperty Name="modificar" ColumnName="modificar" />
+          <ScalarProperty Name="insertar" ColumnName="insertar" />
+          <ScalarProperty Name="idventana" ColumnName="idventana" />
+          <ScalarProperty Name="idrol" ColumnName="idrol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permisosAUsuarios">
+      <EntityTypeMapping TypeName="DB_BibliotecaModel.permisosAUsuarios">
+        <MappingFragment StoreEntitySet="permisosAUsuarios">
+          <ScalarProperty Name="consultar" ColumnName="consultar" />
+          <ScalarProperty Name="eliminar" ColumnName="eliminar" />
+          <ScalarProperty Name="modificar" ColumnName="modificar" />
+          <ScalarProperty Name="insertar" ColumnName="insertar" />
+          <ScalarProperty Name="idventana" ColumnName="idventana" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="idpermisosAUsuarios" ColumnName="idpermisosAUsuarios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rolAsignadoAUsuario">
+      <EntityTypeMapping TypeName="DB_BibliotecaModel.rolAsignadoAUsuario">
+        <MappingFragment StoreEntitySet="rolAsignadoAUsuario">
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idrolAsignadoAUsuario" ColumnName="idrolAsignadoAUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bitacora">
+      <EntityTypeMapping TypeName="DB_BibliotecaModel.Bitacora">
+        <MappingFragment StoreEntitySet="Bitacora">
+          <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+          <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+          <ScalarProperty Name="idBitacora" ColumnName="idBitacora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

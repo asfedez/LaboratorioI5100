@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0f6baf3a93294f6c90f2784f6932bc57" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="DB_BibliotecaModel.clientes" Width="1.5" PointX="0.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BibliotecaModel.existencias" Width="1.5" PointX="8.375" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BibliotecaModel.Libros" Width="1.5" PointX="6.375" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BibliotecaModel.prestamoDet" Width="1.5" PointX="4.375" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BibliotecaModel.prestamoEnc" Width="1.5" PointX="2.5" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="DB_BibliotecaModel.FK__prestamoE__cedul__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BibliotecaModel.FK__existenci__CodLi__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BibliotecaModel.FK__prestamoD__CodLi__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BibliotecaModel.FK__prestamoD__CodPr__02FC7413" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_BibliotecaModel.usuarios" Width="1.5" PointX="0.625" PointY="3.25" />
+        <EntityTypeShape EntityType="DB_BibliotecaModel.roles" Width="1.5" PointX="5.625" PointY="0.625" />
+        <EntityTypeShape EntityType="DB_BibliotecaModel.ventanas" Width="1.5" PointX="5.625" PointY="4.125" />
+        <EntityTypeShape EntityType="DB_BibliotecaModel.permisosDeRol" Width="1.5" PointX="8.125" PointY="3.125" />
+        <AssociationConnector Association="DB_BibliotecaModel.FK__permisosD__idrol__0D7A0286" />
+        <AssociationConnector Association="DB_BibliotecaModel.FK__permisosD__idven__0E6E26BF" />
+        <EntityTypeShape EntityType="DB_BibliotecaModel.permisosAUsuarios" Width="1.5" PointX="3.25" PointY="3.375" />
+        <EntityTypeShape EntityType="DB_BibliotecaModel.rolAsignadoAUsuario" Width="1.5" PointX="1.875" PointY="0.5" />
+        <AssociationConnector Association="DB_BibliotecaModel.FK__permisosA__idusu__1DE57479" />
+        <AssociationConnector Association="DB_BibliotecaModel.FK__permisosA__idven__1ED998B2" />
+        <AssociationConnector Association="DB_BibliotecaModel.FK__rolAsigna__idRol__1A14E395" />
+        <AssociationConnector Association="DB_BibliotecaModel.FK__rolAsigna__idUsu__1B0907CE" />
+        <EntityTypeShape EntityType="DB_BibliotecaModel.Bitacora" Width="1.5" PointX="10.625" PointY="2.625" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,10 @@
+C:\Users\Adrián S. Fernández\Documents\Visual Studio 2017\Projects\LaboratorioI5100\Entidades\bin\Debug\Entidades.dll.config
+C:\Users\Adrián S. Fernández\Documents\Visual Studio 2017\Projects\LaboratorioI5100\Entidades\bin\Debug\Entidades.dll
+C:\Users\Adrián S. Fernández\Documents\Visual Studio 2017\Projects\LaboratorioI5100\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Adrián S. Fernández\Documents\Visual Studio 2017\Projects\LaboratorioI5100\Entidades\bin\Debug\EntityFramework.dll
+C:\Users\Adrián S. Fernández\Documents\Visual Studio 2017\Projects\LaboratorioI5100\Entidades\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Adrián S. Fernández\Documents\Visual Studio 2017\Projects\LaboratorioI5100\Entidades\bin\Debug\EntityFramework.xml
+C:\Users\Adrián S. Fernández\Documents\Visual Studio 2017\Projects\LaboratorioI5100\Entidades\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Adrián S. Fernández\Documents\Visual Studio 2017\Projects\LaboratorioI5100\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Adrián S. Fernández\Documents\Visual Studio 2017\Projects\LaboratorioI5100\Entidades\obj\Debug\Entidades.dll
+C:\Users\Adrián S. Fernández\Documents\Visual Studio 2017\Projects\LaboratorioI5100\Entidades\obj\Debug\Entidades.pdb

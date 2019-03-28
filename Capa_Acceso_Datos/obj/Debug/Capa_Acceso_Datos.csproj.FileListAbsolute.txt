@@ -1,0 +1,7 @@
+c:\users\adrián s. fernández\documents\visual studio 2017\Projects\LaboratorioI5100\Capa_Acceso_Datos\bin\Debug\Capa_Acceso_Datos.dll
+c:\users\adrián s. fernández\documents\visual studio 2017\Projects\LaboratorioI5100\Capa_Acceso_Datos\bin\Debug\Capa_Acceso_Datos.pdb
+c:\users\adrián s. fernández\documents\visual studio 2017\Projects\LaboratorioI5100\Capa_Acceso_Datos\bin\Debug\Capa_Logica_Negocio.dll
+c:\users\adrián s. fernández\documents\visual studio 2017\Projects\LaboratorioI5100\Capa_Acceso_Datos\bin\Debug\Capa_Logica_Negocio.pdb
+c:\users\adrián s. fernández\documents\visual studio 2017\Projects\LaboratorioI5100\Capa_Acceso_Datos\obj\Debug\Capa_Acceso_Datos.csprojResolveAssemblyReference.cache
+c:\users\adrián s. fernández\documents\visual studio 2017\Projects\LaboratorioI5100\Capa_Acceso_Datos\obj\Debug\Capa_Acceso_Datos.dll
+c:\users\adrián s. fernández\documents\visual studio 2017\Projects\LaboratorioI5100\Capa_Acceso_Datos\obj\Debug\Capa_Acceso_Datos.pdb
